@@ -35,7 +35,6 @@ navigator.mediaDevices.getUserMedia({
 
 socket.on('user-disconnected', userId => {
     if (peers[userId]) peers[userId].close()
-    alert('One or more users left!')
     const call = myPeer.call(userId, stream)
     const video = document.createElement('video')
     call.on('user-disconnected', () => {
